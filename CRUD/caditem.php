@@ -12,6 +12,7 @@ if (isset($_FILES['imagem'])) {
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
     if ($imageFileType != "jpg" && $imageFileType != "jpeg" && $imageFileType != "png" && $imageFileType != "gif") {
         echo "Apenas arquivos JPG, JPEG, PNG e GIF são permitidos.";
+        header('Location: ../index.php');
         exit();
     }
     // Move o arquivo para a pasta uploads

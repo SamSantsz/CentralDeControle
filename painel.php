@@ -2,7 +2,7 @@
 <?php
 include 'conexao/bancodados.php';
 
-include 'CRUD/cadastro.php';
+include 'CRUD/caditem.php';
 
 
 if (isset($_GET['delete'])) {

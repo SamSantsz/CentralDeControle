@@ -2,7 +2,7 @@
 <?php
 include 'conexao/bancodados.php';
 
-include 'CRUD/cadastro.php';
+include 'CRUD/caditem.php';
 
 
 if (isset($_GET['delete'])) {
@@ -69,7 +69,7 @@ if (isset($_GET['delete'])) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form method="POST" action="CRUD/cadastro.php" enctype="multipart/form-data">
+                    <form method="POST" action="CRUD/caditem.php" enctype="multipart/form-data">
                       <h5><label for="nome">Nome:</label><br><br></h5>
                       <input type="text" name="nome" required><br><br>
                       <h5><label for="imagem">Imagem:</label><br><br></h5>
@@ -101,9 +101,12 @@ if (isset($_GET['delete'])) {
               ?>
               <?php while ($row = mysqli_fetch_assoc($select)) { ?>
 
-                <div class="col">
+                <div class="col-3 col-md-3" >
                   <div class="card shadow-sm">
-                    <a href="detalhe.php"> <img src="img/<?php echo $row['imagem']; ?>" height="246" width="246" alt=""> </a>
+                    <div>
+                      <a href="detitem.php"> <img src="img/<?php echo $row['imagem']; ?>" class="img-thumbnail" alt=""> </a>
+                    </div>
+                    <!-- class="img-fluid" height="289" width="289"-->
                     <div class="card-body">
                       <p class="card-text"><?php echo $row['nome']; ?>.</p>
                       <div class="d-flex justify-content-between align-items-center">

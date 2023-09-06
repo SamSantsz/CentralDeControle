@@ -2,7 +2,7 @@
 <?php
 include '../conexao/bancodados.php';
 
-include 'cadastro.php';
+include 'caditem.php';
 
 
 if (isset($_GET['delete'])) {
@@ -49,7 +49,7 @@ if (isset($_GET['delete'])) {
                 <!-- Campo do Formulario -->
                 <div class="col-md-8 col-lg-7" style="margin: auto">
                     <h3 class="mb-3">Novo Chamado</h3>
-                    <form class="needs-validation" novalidate>
+                    <form method="POST" action="cadfrom.php" class="needs-validation" novalidate>
                         <div class="row g-3">
                             <div class="col-sm-12">
                                 <label for="Nome" class="form-label">Nome</label>
@@ -60,10 +60,10 @@ if (isset($_GET['delete'])) {
                             </div>
 
                             <div class="col-12">
-                                <label for="E-mail" class="form-label">E-mail</label>
+                                <label for="Email" class="form-label">E-mail</label>
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">@</span>
-                                    <input type="email" class="form-control" id="E-mail" placeholder="you@example.com" required>
+                                    <input type="email" class="form-control" id="Email" placeholder="you@example.com" required>
                                     <div class="invalid-feedback">
                                         E-mail válido é obrigatório.
                                     </div>
@@ -72,7 +72,7 @@ if (isset($_GET['delete'])) {
 
                             <div class="col-12">
                                 <label for="Whatsapp" class="form-label">N° Whatsapp <span class="text-body-secondary">(Optional)</span></label>
-                                <input type="Whatsapp" class="form-control" id="Whatsapp" placeholder="(85)9 0000-0000">
+                                <input type="number" class="form-control" id="Whatsapp" placeholder="(85)9 0000-0000">
                                 <div class="invalid-feedback">
                                     N° Whatsapp válido
                                 </div>
@@ -117,23 +117,15 @@ if (isset($_GET['delete'])) {
                                 <input type="number" class="form-control" id="TeamViewer" placeholder="ID">
                             </div>
 
-                            <div class="col-md-5">
+                            <div class="col-md-5" style="margin-right: 62px;">
                                 <label for="Data" class="form-label">Data de Criação</label>
                                 <input type="datetime-local" class="form-control" id="data" >
-                                <div type="text" class="form-control">
+                                <!-- <div type="text" class="form-control">
                                     <script src="../js/style.js"></script>
-                                </div>
+                                </div> -->
                             </div>
 
-                            <div class="col-md-3">
-                                <label for="Tecnico" class="form-label">Tecnico</label>
-                                <input type="text" class="form-control" id="Status" placeholder="Tecnico..." required readonly>
-                                <div class="invalid-feedback">
-                                    Tecnico responsavel.
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
+                            <div class="col-md-5" style="margin-left: 62px;">
                                 <label for="Status" class="form-label">Status</label>
                                 <input type="text" class="form-control" id="Status" placeholder="Não Iniciado" required readonly>
                                 <div class="invalid-feedback">
@@ -146,7 +138,7 @@ if (isset($_GET['delete'])) {
                         <hr class="my-4">
                         <hr class="my-4">
 
-                        <button class="w-100 btn btn-primary btn-lg" type="submit">Envia Chamando</button>
+                        <button class="w-100 btn btn-primary btn-lg" value="Salvar" type="submit">Envia Chamando</button>
                     </form>
                 </div>
                 <!-- Fim Campo do Formulario -->
