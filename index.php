@@ -2,17 +2,31 @@
 <?php
 include 'conexao/bancodados.php';
 
-include 'CRUD/caditem.php';
+include 'CRUD/cadastra_item.php';
 
 
 if (isset($_GET['delete'])) {
   $id = $_GET['delete'];
   mysqli_query($conn, "DELETE FROM tb_item WHERE id = $id");
   echo "<script>alert('Registro excluído com sucesso.');</script>";
-  header('location:index.php');
+}
+
+
+// <!-- Contador de Item -->
+
+// Consulta SQL para contar o número de registros na tabela chamados
+$contagem_sql = "SELECT COUNT(*) AS total FROM tb_estoque WHERE id";
+$contagem_result = $conn->query($contagem_sql);
+
+if ($contagem_result->num_rows == 1) {
+  $contagem_row = $contagem_result->fetch_assoc();
+  $total_item = $contagem_row["total"];
+} else {
+  echo "Erro ao contar os chamados.";
 }
 
 ?>
+
 <!-- Fim Concexão com Banco de Dados -->
 
 <!doctype html>
@@ -38,17 +52,17 @@ if (isset($_GET['delete'])) {
 <body>
   <!-- link do Menu -->
   <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <?php include 'conexao/menu.php' ?>
+    <?php include 'conexao/menu/menu.php' ?>
   </header>
   <!-- Fim link do Menu -->
 
   <div class="container-fluid">
     <div class="row">
       <!-- link do Barra Lateral -->
-      <?php include 'conexao/barralateral.php' ?>
+      <?php include 'conexao/menu/barralateral.php' ?>
       <!-- Fim link do Barra Lateral -->
 
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-2">
         <!-- Topo -->
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2">Equipamentos</h1>
@@ -69,7 +83,7 @@ if (isset($_GET['delete'])) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form method="POST" action="CRUD/caditem.php" enctype="multipart/form-data">
+                    <form method="POST" action="CRUD/cadastra_item.php" enctype="multipart/form-data">
                       <h5><label for="nome">Nome:</label><br><br></h5>
                       <input type="text" name="nome" required><br><br>
                       <h5><label for="imagem">Imagem:</label><br><br></h5>
@@ -101,22 +115,23 @@ if (isset($_GET['delete'])) {
               ?>
               <?php while ($row = mysqli_fetch_assoc($select)) { ?>
 
-                <div class="col-3 col-md-3" >
+                <div class="col-3 col-md-3">
                   <div class="card shadow-sm">
                     <div>
-                      <a href="detitem.php"> <img src="img/<?php echo $row['imagem']; ?>" class="img-thumbnail" alt=""> </a>
+                      <a href="detalhe_item.php?detalhe=<?php echo $row['id']; ?>"> <img class="img-fluid" src="img/<?php echo $row['imagem']; ?>" alt=""> </a>
                     </div>
                     <!-- class="img-fluid" height="289" width="289"-->
                     <div class="card-body">
-                      <p class="card-text"><?php echo $row['nome']; ?>.</p>
+
+                      <p class="card-text"><?php echo $row['descricao']; ?>.</p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
 
-                          <a href="CRUD/altera.php?edit=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-secondary"> <i class="fas fa-edit"></i> editar </a>
+                          <a href="CRUD/altera_item.php?edit=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-secondary"> <i class="fas fa-edit"></i> editar </a>
                           <a href="index.php?delete=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-secondary"> <i class="fas fa-trash"></i> deletar </a>
 
                         </div>
-                        <small class="text-muted">9 Quant</small>
+                        <small class="text-muted"><?php echo $total_item ?></small>
                       </div>
                     </div>
                   </div>

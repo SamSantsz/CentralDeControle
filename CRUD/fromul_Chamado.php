@@ -2,16 +2,6 @@
 <?php
 include '../conexao/bancodados.php';
 
-include 'caditem.php';
-
-
-if (isset($_GET['delete'])) {
-    $id = $_GET['delete'];
-    mysqli_query($conn, "DELETE FROM tb_item WHERE id = $id");
-    echo "<script>alert('Registro excluído com sucesso.');</script>";
-    header('location:index.php');
-}
-
 ?>
 <!-- Fim Concexão com Banco de Dados -->
 
@@ -52,18 +42,18 @@ if (isset($_GET['delete'])) {
                     <form method="POST" action="cadfrom.php" class="needs-validation" novalidate>
                         <div class="row g-3">
                             <div class="col-sm-12">
-                                <label for="Nome" class="form-label">Nome</label>
-                                <input type="text" class="form-control" id="Nome" placeholder="" value="" required>
+                                <label for="nome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="Nome" name="nome" required>
                                 <div class="invalid-feedback">
                                     Nome válido é obrigatório.
                                 </div>
                             </div>
 
                             <div class="col-12">
-                                <label for="Email" class="form-label">E-mail</label>
+                                <label for="email" class="form-label">E-mail</label>
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">@</span>
-                                    <input type="email" class="form-control" id="Email" placeholder="you@example.com" required>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
                                     <div class="invalid-feedback">
                                         E-mail válido é obrigatório.
                                     </div>
@@ -71,20 +61,31 @@ if (isset($_GET['delete'])) {
                             </div>
 
                             <div class="col-12">
-                                <label for="Whatsapp" class="form-label">N° Whatsapp <span class="text-body-secondary">(Optional)</span></label>
-                                <input type="number" class="form-control" id="Whatsapp" placeholder="(85)9 0000-0000">
+                                <label for="whatsapp" class="form-label">N° Whatsapp <span class="text-body-secondary">(Optional)</span></label>
+                                <input type="number" class="form-control" id="whatsapp" name="whatsapp" placeholder="(85)9 0000-0000">
                                 <div class="invalid-feedback">
                                     N° Whatsapp válido
                                 </div>
                             </div>
 
                             <div class="col-md-6">
-                                <label for="Loja" class="form-label">Loja</label>
-                                <select class="form-select" id="Loja" required>
+                                <label for="loja" class="form-label">Loja</label>
+                                <select class="form-select" id="loja" name="loja" required>
                                     <option value="">Moranguinho...</option>
                                     <option>Matriz</option>
+                                    <option>Avenida</option>
+                                    <option>São Francisco</option>
+                                    <option>Coneito</option>
+                                    <option>CD</option>
+                                    <option>Jangada Casc</option>
+                                    <option>Horizonte</option>
                                     <option>Filial</option>
-                                    <option>Conceito</option>
+                                    <option>Shopping</option>
+                                    <option>Jangada Hori</option>
+                                    <option>Barreira</option>
+                                    <option>Buriti</option>
+                                    <option>Beberibe</option>
+                                    <option>Nova Barreira</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Selecione uma Loja válida.
@@ -92,12 +93,26 @@ if (isset($_GET['delete'])) {
                             </div>
 
                             <div class="col-md-6">
-                                <label for="Setor" class="form-label">Setor</label>
-                                <select class="form-select" id="Setor" required>
+                                <label for="setor" class="form-label">Setor</label>
+                                <select class="form-select" id="setor" name="setor" required>
                                     <option value="">Setor...</option>
-                                    <option>F.Loja</option>
-                                    <option>Salão</option>
+                                    <option>Frente de Loja</option>
                                     <option>Recebimento</option>
+                                    <option>PDV</option>
+                                    <option>Salão</option>
+                                    <option>TI</option>
+                                    <option>Comercial Casc</option>
+                                    <option>DP</option>
+                                    <option>RH</option>
+                                    <option>Financeiro</option>
+                                    <option>Padaria</option>
+                                    <option>Chegue Pague</option>
+                                    <option>Frigorífico</option>
+                                    <option>Cartaz</option>
+                                    <option>DTI</option>
+                                    <option>Recepção</option>
+                                    <option>Preços</option>
+                                    <option>Entregas</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Selecione um Setor válido.
@@ -105,29 +120,33 @@ if (isset($_GET['delete'])) {
                             </div>
 
                             <div class="col-12">
-                                <label for="Problema" class="form-label">Problema</label>
-                                <textarea type="text" class="form-control" id="Problema" rows="3"></textarea required>
+                                <label for="problema" class="form-label">Problema</label>
+                                <textarea type="text" class="form-control" id="problema" name="problema" rows="3" required></textarea>
                                 <div class="invalid-feedback">
                                     Descreva o Problema.
                                 </div>
                             </div>
 
                             <div class="col-12">
-                                <label for="TeamViewer" class="form-label">TeamViewer <span class="text-body-secondary">(Optional)</span></label>
-                                <input type="number" class="form-control" id="TeamViewer" placeholder="ID">
+                                <label for="teamViewer" class="form-label">TeamViewer <span class="text-body-secondary">(Optional)</span></label>
+                                <input type="number" class="form-control" id="teamViewer" name="teamviewer" placeholder="ID">
                             </div>
 
-                            <div class="col-md-5" style="margin-right: 62px;">
-                                <label for="Data" class="form-label">Data de Criação</label>
-                                <input type="datetime-local" class="form-control" id="data" >
+                            <div class="col-md-4">
+                                <label for="data" class="form-label">Data de Criação</label>
+                                <input type="datetime-local" class="form-control" id="data" name="data" required>
                                 <!-- <div type="text" class="form-control">
                                     <script src="../js/style.js"></script>
                                 </div> -->
                             </div>
 
-                            <div class="col-md-5" style="margin-left: 62px;">
-                                <label for="Status" class="form-label">Status</label>
-                                <input type="text" class="form-control" id="Status" placeholder="Não Iniciado" required readonly>
+                            <div class="col-md-4">
+
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="status" class="form-label">Status</label>
+                                <input type="text" class="form-control" id="status" name="status" placeholder="Não Iniciado" required readonly>
                                 <div class="invalid-feedback">
                                     Status do Chamado
                                 </div>
@@ -144,17 +163,8 @@ if (isset($_GET['delete'])) {
                 <!-- Fim Campo do Formulario -->
             </div>
         </main>
-
-        <footer class="my-5 pt-5 text-body-secondary text-center text-small">
-            <p class="mb-1">&copy; 2017–2023 Company Name</p>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Privacy</a></li>
-                <li class="list-inline-item"><a href="#">Terms</a></li>
-                <li class="list-inline-item"><a href="#">Support</a></li>
-            </ul>
-        </footer>
     </div>
-
+    <br><br><br><br>
     <!-- Links JS -->
     <script src="../js/dashboard.js"></script>
     <script src="../js/dist/bootstrap.bundle.min.js"></script>
