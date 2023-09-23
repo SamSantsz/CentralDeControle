@@ -242,7 +242,7 @@ if ($contagem_result->num_rows == 1) {
                                 <th>situacao</th>
                                 </tr>";
                             echo "</thead>";
-                            echo  "<tbody id='tabela-chamado'>";
+                            echo  "<tbody id='tabela-estoque'>";
                             while ($row = $result->fetch_assoc()) {
                                 echo "<tr>";
                                 echo "<td>" . $row["id"] . "</td>";
@@ -274,7 +274,7 @@ if ($contagem_result->num_rows == 1) {
     <script src="js/dist/bootstrap.bundle.min.js"></script>
     <script src="js/dist/feather.min.js"></script>
     <script src="js/dist/chart.min.js"></script>
-
+    <script src="js/eventos.js"></script>
 </body>
 
 </html>

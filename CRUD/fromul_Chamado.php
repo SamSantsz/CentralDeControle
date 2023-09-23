@@ -39,7 +39,7 @@ include '../conexao/bancodados.php';
                 <!-- Campo do Formulario -->
                 <div class="col-md-8 col-lg-7" style="margin: auto">
                     <h3 class="mb-3">Novo Chamado</h3>
-                    <form method="POST" action="cadfrom.php" class="needs-validation" novalidate>
+                    <form method="POST" action="cadastra_from.php" class="needs-validation" novalidate>
                         <div class="row g-3">
                             <div class="col-sm-12">
                                 <label for="nome" class="form-label">Nome</label>

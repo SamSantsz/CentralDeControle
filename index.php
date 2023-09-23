@@ -102,7 +102,7 @@ if (isset($_GET['delete'])) {
               <?php while ($row = mysqli_fetch_assoc($select)) { ?>
 
                 <div class="col-3 col-md-3">
-                  <div class="card shadow-sm">
+                  <div class="card shadow-sm" id='tabela-estoque'>
                     <div>
                       <a href="detalhe_item.php?detalhe=<?php echo $row['id']; ?>"> <img class="img-fluid" src="img/<?php echo $row['imagem']; ?>" alt=""> </a>
                     </div>
@@ -137,7 +137,7 @@ if (isset($_GET['delete'])) {
   <script src="js/dist/bootstrap.bundle.min.js"></script>
   <script src="js/dist/feather.min.js"></script>
   <script src="js/dist/chart.min.js"></script>
-
+  <script src="js/eventos.js"></script>
 </body>
 
 </html>
