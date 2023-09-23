@@ -24,6 +24,15 @@ include 'CRUD/atualizar_chamado.php';
 
   <!-- Custom styles for this template -->
   <link href="css/dashboard.css" rel="stylesheet">
+
+  <style>
+    #rolagem {
+      max-height: 490px;
+      /* Defina a altura máxima desejada */
+      overflow-y: scroll;
+      /* Adicione uma barra de rolagem vertical quando necessário */
+    }
+  </style>
 </head>
 
 <body>
@@ -82,7 +91,7 @@ include 'CRUD/atualizar_chamado.php';
           <!-- Fim Dos Filtro -->
 
           <!-- Lista de Chamado -->
-          <div class="dropdown-menu d-block position-static shadow" style="margin-left: 16em;">
+          <div id="rolagem" class="dropdown-menu d-block position-static shadow" style="margin-left: 16em;">
             <h5 style="text-align: center;">Lista de Chamado</h5>
             <div class="table-responsive small">
               <?php

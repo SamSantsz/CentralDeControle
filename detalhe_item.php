@@ -7,7 +7,7 @@ $id = $_GET['detalhe'];
 // <!-- Contador de Item -->
 
 // Consulta SQL para contar o número de registros na tabela chamados
-$contagem_sql = "SELECT COUNT(*) AS total FROM tb_estoque WHERE id = $id";
+$contagem_sql = "SELECT COUNT(*) AS total FROM tb_estoque WHERE id_item = $id";
 $contagem_result = $conn->query($contagem_sql);
 
 if ($contagem_result->num_rows == 1) {
@@ -38,11 +38,22 @@ if ($contagem_result->num_rows == 1) {
 
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
+    <link href="css/estilos.css" rel="stylesheet">
+
+    <style>
+        #rolagem {
+            max-height: 490px;
+            /* Defina a altura máxima desejada */
+            overflow-y: scroll;
+            /* Adicione uma barra de rolagem vertical quando necessário */
+        }
+    </style>
+
 </head>
 
 <body>
     <!-- link do Menu -->
-    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <header style="max-height: 300px;" class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
         <?php include 'conexao/menu/menu.php' ?>
     </header>
     <!-- Fim link do Menu -->
@@ -67,7 +78,7 @@ if ($contagem_result->num_rows == 1) {
                                 <h5 style="text-align: center;"><?php echo $row['descricao']; ?></h5>
                             </div>
 
-                            <small class="text-muted">Estoque : <?php echo $total_item ?></small>
+                            <small class="text-muted">Quantidade : <?php echo $total_item ?> itens</small>
 
                             <!-- botão de modal -->
                             <button style="float: right; margin-right: 1em; margin-top: 1em;" type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -90,8 +101,15 @@ if ($contagem_result->num_rows == 1) {
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="POST" action="CRUD/cadastra_estoque.php" enctype="multipart/form-data">
+                                    <form method="POST" action="CRUD/cadastra_estoque.php?detalhe=<?php echo $row['id']; ?>" enctype="multipart/form-data">
                                         <div class="row g-3">
+                                            <div class="col-sm-12">
+                                                <label for="iditem" class="form-label">ID Item</label>
+                                                <input class="form-control" type="text" id="iditem" name="iditem" value="<?php echo $row['id']; ?>" required readonly>
+                                                <div class="invalid-feedback">
+                                                    Nome válido é obrigatório.
+                                                </div>
+                                            </div>
                                             <div class="col-sm-12">
                                                 <label for="descricao" class="form-label">Descrição</label>
                                                 <input class="form-control" type="text" id="descricao" name="descricao" value="<?php echo $row['descricao']; ?>" required readonly>
@@ -101,7 +119,7 @@ if ($contagem_result->num_rows == 1) {
                                             </div>
                                             <div class="col-sm-12">
                                                 <label for="nserie" class="form-label">N° Série</label>
-                                                <input type="number" class="form-control" id="nserie" name="nserie" required>
+                                                <input type="text" class="form-control" id="nserie" name="nserie" required>
                                                 <div class="invalid-feedback">
                                                     Nome válido é obrigatório.
                                                 </div>
@@ -159,8 +177,8 @@ if ($contagem_result->num_rows == 1) {
                                             </div>
 
                                             <div class="col-12">
-                                                <label for="PDV" class="form-label">PDV <span class="text-body-secondary">(Optional)</span></label>
-                                                <input type="number" class="form-control" id="PDV" name="PDV" placeholder="Caixa...">
+                                                <label for="pdv" class="form-label">PDV <span class="text-body-secondary">(Optional)</span></label>
+                                                <input type="number" class="form-control" id="pdv" name="pdv" placeholder="Caixa...">
                                             </div>
 
                                             <div class="col-md-4">
@@ -195,38 +213,56 @@ if ($contagem_result->num_rows == 1) {
                 <?php } ?>
 
                 <!-- Lista de Equipamento -->
-                <div class="dropdown-menu d-block position-static shadow" style="margin-left: 20em;">
-                    <h4 style="text-align: center;">Lista de Equipamento</h4>
+                <div id="rolagem" class="dropdown-menu d-block position-static shadow offcanvas-body" style="margin-left: 16em;">
+                    <h5 style="text-align: center;">Lista de Chamado</h5>
                     <div class="table-responsive small">
-                        <h1>Tabela de Estoque</h1>
-                        <table border="1">
-                            <tr>
-                                <th>ID do Item</th>
-                                <th>Descrição do Item</th>
-                                <th>Quantidade em Estoque</th>
-                            </tr>
+                        <?php
+                        // Verifique se um filtro de status foi especificado na URL
+                        $filtro_status = isset($_GET["id"]) ? $_GET["id"] : null;
 
-                            <?php
-                            // Consulta SQL para recuperar os dados
-                            $sql = "SELECT tb_item.id, tb_item.descricao, tb_estoque.quantidade
-                                    FROM tb_item
-                                    INNER JOIN tb_estoque ON tb_item.id = tb_estoque.item_id";
+                        // Construa a consulta SQL com base no filtro de status
+                        $sql = "SELECT * FROM tb_estoque WHERE id_item = '$id'";
 
-                            $result = $conn->query($sql);
+                        if ($filtro_status) {
+                            $sql .= " WHERE status = '$filtro_status'";
+                        }
 
-                            if ($result->num_rows > 0) {
-                                while ($row = $result->fetch_assoc()) {
-                                    echo "<tr>";
-                                    echo "<td>" . $row["id"] . "</td>";
-                                    echo "<td>" . $row["descricao"] . "</td>";
-                                    echo "<td>" . $row["quantidade"] . "</td>";
-                                    echo "</tr>";
-                                }
-                            } else {
-                                echo "<tr><td colspan='3'>Nenhum registro encontrado.</td></tr>";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                            echo "<table class='table table-striped table-sm table-bordered'>";
+                            echo "<thead>";
+                            echo "<tr>
+                                <th>ID</th>
+                                <th>descricao</th>
+                                <th>nserie</th>
+                                <th>loja</th>
+                                <th>setor</th>
+                                <th>pdv</th>
+                                <th>situacao</th>
+                                </tr>";
+                            echo "</thead>";
+                            echo  "<tbody id='tabela-chamado'>";
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td>" . $row["id"] . "</td>";
+                                echo "<td>" . $row["descricao"] . "</td>";
+                                echo "<td>" . $row["nserie"] . "</td>";
+                                echo "<td>" . $row["loja"] . "</td>";
+                                echo "<td>" . $row["setor"] . "</td>";
+                                echo "<td>" . $row["pdv"] . "</td>";
+                                echo "<td>" . $row["situacao"] . "</td>";
+                                echo "<td><a class='btn btn-sm btn-outline-primary dropdown-toggle' href='CRUD/altera_formulario?id=" . $row["id"] . "'>Editar</a></td>";
+                                echo "</tr>";
                             }
-                            ?>
-                        </table>
+                            echo "</tbody>";
+                            echo "</table>";
+                        } else {
+                            echo "Nenhum chamado cadastrado.";
+                        }
+
+                        // Feche a conexão com o banco de dados
+                        ?>
                     </div>
                 </div>
                 <!-- Fim da Lista de Chamado -->

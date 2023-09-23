@@ -11,20 +11,6 @@ if (isset($_GET['delete'])) {
   echo "<script>alert('Registro excluído com sucesso.');</script>";
 }
 
-
-// <!-- Contador de Item -->
-
-// Consulta SQL para contar o número de registros na tabela chamados
-$contagem_sql = "SELECT COUNT(*) AS total FROM tb_estoque WHERE id";
-$contagem_result = $conn->query($contagem_sql);
-
-if ($contagem_result->num_rows == 1) {
-  $contagem_row = $contagem_result->fetch_assoc();
-  $total_item = $contagem_row["total"];
-} else {
-  echo "Erro ao contar os chamados.";
-}
-
 ?>
 
 <!-- Fim Concexão com Banco de Dados -->
@@ -131,7 +117,7 @@ if ($contagem_result->num_rows == 1) {
                           <a href="index.php?delete=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-secondary"> <i class="fas fa-trash"></i> deletar </a>
 
                         </div>
-                        <small class="text-muted"><?php echo $total_item ?></small>
+                        <small class="text-muted">ITEM : <?php echo $row['id']; ?></small>
                       </div>
                     </div>
                   </div>

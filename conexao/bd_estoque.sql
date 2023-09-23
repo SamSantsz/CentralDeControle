@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 20-Set-2023 às 21:46
+-- Tempo de geração: 23-Set-2023 às 16:43
 -- Versão do servidor: 8.0.31
 -- versão do PHP: 8.0.26
 
@@ -72,6 +72,7 @@ INSERT INTO `tb_chamado` (`id`, `nome`, `email`, `whatsapp`, `loja`, `setor`, `p
 DROP TABLE IF EXISTS `tb_estoque`;
 CREATE TABLE IF NOT EXISTS `tb_estoque` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `id_item` int NOT NULL,
   `descricao` varchar(255) NOT NULL,
   `nserie` varchar(255) NOT NULL,
   `loja` text NOT NULL,
@@ -79,18 +80,29 @@ CREATE TABLE IF NOT EXISTS `tb_estoque` (
   `pdv` int NOT NULL,
   `situacao` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `tb_estoque`
 --
 
-INSERT INTO `tb_estoque` (`id`, `descricao`, `nserie`, `loja`, `setor`, `pdv`, `situacao`) VALUES
-(1, 'tes', '123', 'Matriz', 'TI', 0, 'Funcionando'),
-(2, 'samuel santos', '1234', 'São Francisco', 'Chegue Pague', 0, 'Funcionando'),
-(3, 'tt', '123', 'Coneito', 'Financeiro', 0, 'Funcionando'),
-(4, 'samuel santos', '23', 'Coneito', 'Padaria', 0, 'Funcionando'),
-(5, 'ta', '23', 'Coneito', 'Padaria', 0, 'Funcionando');
+INSERT INTO `tb_estoque` (`id`, `id_item`, `descricao`, `nserie`, `loja`, `setor`, `pdv`, `situacao`) VALUES
+(1, 38, 'tes', '123', 'Matriz', 'TI', 0, 'Funcionando'),
+(2, 36, 'samuel santos', '1234', 'São Francisco', 'Chegue Pague', 0, 'Funcionando'),
+(3, 37, 'tt', '123', 'Coneito', 'Financeiro', 0, 'Funcionando'),
+(4, 39, 'samuel santos', '23', 'Coneito', 'Padaria', 0, 'Funcionando'),
+(5, 40, 'ta', '23', 'Coneito', 'Padaria', 0, 'Funcionando'),
+(6, 0, 'samuel santos', '222', 'Jangada Hori', 'PDV', 0, 'Funcionando'),
+(7, 0, 'samuel santos', '12', 'Buriti', 'PDV', 0, 'Funcionando'),
+(8, 0, 'samuel santos', '33', 'Barreira', 'Frigorífico', 0, 'Funcionando'),
+(9, 39, 'samuel santos', '1212', 'Buriti', 'DTI', 111, 'Funcionando'),
+(10, 39, 'samuel santos', '134', 'Barreira', 'Cartaz', 0, 'Funcionando'),
+(11, 39, 'samuel santos', '12', 'Shopping', 'Cartaz', 1, 'Funcionando'),
+(12, 39, 'samuel santos', 'we432', 'Buriti', 'Recepção', 23, 'Funcionando'),
+(13, 39, 'samuel santos', '123', 'Buriti', 'Recepção', 1, 'Funcionando'),
+(14, 39, 'samuel santos', '12', 'Beberibe', 'Recepção', 1, 'Funcionando'),
+(15, 39, 'samuel santos', '12', 'Beberibe', 'Recepção', 1, 'Funcionando'),
+(16, 39, 'samuel santos', '34', 'Buriti', 'Recepção', 3, 'Funcionando');
 
 -- --------------------------------------------------------
 
