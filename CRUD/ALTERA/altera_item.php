@@ -41,6 +41,8 @@ if (isset($_POST['update_tb_item'])) {
    <meta name="generator" content="Hugo 0.108.0">
 
    <title>Controle de Chamados</title>
+   <!-- Favicons -->
+  <link rel="icon" href="IMG/ICONE/icone.jpg" sizes="16x16" type="image/jpg">
 
    <!-- Links CSS -->
    <link href="../../css/dist/bootstrap.min.css" rel="stylesheet">
