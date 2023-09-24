@@ -54,14 +54,14 @@ if ($contagem_result->num_rows == 1) {
 <body>
     <!-- link do Menu -->
     <header style="max-height: 300px;" class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <?php include 'conexao/menu/menu.php' ?>
+        <?php include 'CONEXAO/NAV/menu.php' ?>
     </header>
     <!-- Fim link do Menu -->
 
     <div class="container-fluid">
         <div class="row">
             <!-- link do Barra Lateral -->
-            <?php include 'conexao/menu/barralateral.php' ?>
+            <?php include 'CONEXAO/NAV/barralateral.php' ?>
             <!-- Fim link do Barra Lateral -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-2">
                 <!-- Painel de Item -->
@@ -101,7 +101,7 @@ if ($contagem_result->num_rows == 1) {
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="POST" action="CRUD/cadastra_estoque.php?detalhe=<?php echo $row['id']; ?>" enctype="multipart/form-data">
+                                    <form method="POST" action="CRUD/CADASTRA/cadastra_estoque.php?detalhe=<?php echo $row['id']; ?>" enctype="multipart/form-data">
                                         <div class="row g-3">
                                             <div class="col-sm-12">
                                                 <label for="iditem" class="form-label">ID Item</label>

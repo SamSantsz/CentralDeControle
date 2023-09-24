@@ -1,6 +1,6 @@
 <?php
 // informações de conexão com o banco de dados
-@include '../conexao/bancodados.php';
+@include '../../conexao/bancodados.php';
 
 // Verifique se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -20,12 +20,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$nome', '$email', '$whatsapp', '$loja', '$setor', '$problema', '$teamviewer', '$data', '$status')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "<script> alert('Cadastro realizado com sucesso!'); windows.location.href='../painel.php'; </script>";
+
+        echo "<script> alert('Cadastro realizado com sucesso!'); location.href='../../painel_chamado.php'; </script>";
         
-        header('Location: ../painel.php');
     } else {
-        echo "<script> alert('Por favor, preencha todos os campos!'); windows.location.href='../painel.php'; </script>";
-        header('Location: fromChamado.php');
+
+        echo "<script> alert('Por favor, preencha todos os campos!'); location.href='../../painel_chamado.php'; </script>";
+       
     }
 
     // Feche a conexão com o banco de dados

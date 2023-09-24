@@ -1,19 +1,14 @@
-<!-- Concexão com Banco de Dados -->
 <?php
+// Concexão com Banco de Dados
 include 'conexao/bancodados.php';
 
-include 'CRUD/cadastra_item.php';
+// CRUD Cadastra Item
+include 'CRUD/CADASTRA/cadastra_item.php';
 
-
-if (isset($_GET['delete'])) {
-  $id = $_GET['delete'];
-  mysqli_query($conn, "DELETE FROM tb_item WHERE id = $id");
-  echo "<script>alert('Registro excluído com sucesso.');</script>";
-}
+// Concexão com Banco de Dados
 
 ?>
 
-<!-- Fim Concexão com Banco de Dados -->
 
 <!doctype html>
 <html lang="pt">
@@ -29,23 +24,23 @@ if (isset($_GET['delete'])) {
 
   <!-- Links CSS -->
   <link href="css/dist/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
+  <!-- Custom styles for this template -->  
+  <link href="css/styles.css" rel="stylesheet">
   <link href="css/dashboard.css" rel="stylesheet">
 </head>
 
 <body>
   <!-- link do Menu -->
   <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <?php include 'conexao/menu/menu.php' ?>
+    <?php include 'CONEXAO/NAV/menu.php' ?>
   </header>
   <!-- Fim link do Menu -->
 
   <div class="container-fluid">
     <div class="row">
       <!-- link do Barra Lateral -->
-      <?php include 'conexao/menu/barralateral.php' ?>
+      <?php include 'CONEXAO/NAV/barralateral.php' ?>
       <!-- Fim link do Barra Lateral -->
 
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-2">
@@ -65,15 +60,15 @@ if (isset($_GET['delete'])) {
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar novo Item</h1>
+                    <h1 class="h2">Cadastrar novo Item</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form method="POST" action="CRUD/cadastra_item.php" enctype="multipart/form-data">
-                      <h5><label for="nome">Nome:</label><br><br></h5>
-                      <input type="text" name="nome" required><br><br>
-                      <h5><label for="imagem">Imagem:</label><br><br></h5>
-                      <input type="file" name="imagem" required><br><br>
+                    <form method="POST" action="CRUD/CADASTRA/cadastra_item.php" enctype="multipart/form-data">
+                      <h5><label for="nome">Descrição:</label><br></h5>
+                      <input type="text" name="nome" class="form-control" required><br><br>
+                      <h5><label for="imagem">Imagem:</label><br></h5>
+                      <input type="file" name="imagem" class="form-control" required><br><br>
 
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fecha</button>
@@ -113,8 +108,8 @@ if (isset($_GET['delete'])) {
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
 
-                          <a href="CRUD/altera_item.php?edit=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-secondary"> <i class="fas fa-edit"></i> editar </a>
-                          <a href="index.php?delete=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-secondary"> <i class="fas fa-trash"></i> deletar </a>
+                          <a href="CRUD/ALTERA/altera_item.php?edit=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-secondary"> <i class="fas fa-edit"></i> editar </a>
+                          <a href="CRUD/EXCLUIR/excluir_item.php?delete=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-secondary"> <i class="fas fa-trash"></i> deletar </a>
 
                         </div>
                         <small class="text-muted">ITEM : <?php echo $row['id']; ?></small>

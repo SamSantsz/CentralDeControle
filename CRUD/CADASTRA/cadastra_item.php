@@ -1,11 +1,11 @@
 <?php
 /// informações de conexão com o banco de dados
-@include '../conexao/bancodados.php';
+@include '../../conexao/bancodados.php';
 
 // Verifica se um arquivo foi enviado
 if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] == 0) {
     // Diretório onde a imagem será salva
-    $diretorio = '../img/';
+    $diretorio = '../../img/';
 
     // Nome do arquivo original
     $nomeOriginal = $_FILES['imagem']['name'];
@@ -35,20 +35,17 @@ if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] == 0) {
         $sql = "INSERT INTO tb_item (descricao, imagem) VALUES ('$nome', '$nomeOriginal')";
 
         if (mysqli_query($conn, $sql)) {
-            echo "<script>alert('Dados inseridos com sucesso.');</script>";
-            header('Location: ../index.php');
-            exit();
+            echo "<script>alert('Dados inseridos com sucesso.'); location.href='../../index.php';</script>";
+            
         } else {
-            echo "<script>alert('Erro ao inserir dados: ');</script>" . $conn;
-            header('Location: ../index.php');
+            echo "<script>alert('Erro ao inserir dados: '); location.href='../../index.php';</script>" . $conn;
         }
 
         // Libera memória
         imagedestroy($novaImagem);
         imagedestroy($imagemOriginal);
     } else {
-        echo "<script>alert('Erro ao enviar arquivo.');</script>";
-        header('Location: ../index.php');
+        echo "<script>alert('Erro ao enviar arquivo.'); location.href='../../index.php';</script>";
     }
 }
 

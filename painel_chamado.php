@@ -2,7 +2,7 @@
 <?php
 include 'conexao/bancodados.php';
 
-include 'CRUD/atualizar_chamado.php';
+include 'CRUD/ALTERA/atualizar_chamado.php';
 ?>
 <!-- Fim Concexão com Banco de Dados -->
 
@@ -38,14 +38,14 @@ include 'CRUD/atualizar_chamado.php';
 <body>
   <!-- link do Menu -->
   <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <?php include 'conexao/menu/menu.php' ?>
+    <?php include 'CONEXAO/NAV/menu.php' ?>
   </header>
   <!-- Fim link do Menu -->
 
   <div class="container-fluid">
     <div class="row">
       <!-- link do Barra Lateral -->
-      <?php include 'conexao/menu/barralateral.php' ?>
+      <?php include 'CONEXAO/NAV/barralateral.php' ?>
       <!-- Fim link do Barra Lateral -->
 
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-2">
@@ -72,7 +72,7 @@ include 'CRUD/atualizar_chamado.php';
                   <h5 style="text-align: center;">Status</h5>
                 </div>
                 <!-- link do Filtro Pro Status -->
-                <?php include 'conexao/filtro/status/filtra_status.php' ?>
+                <?php include 'CONEXAO/FILTRO/STATUS/filtro_status.php' ?>
                 <!-- Fim link do Filtro Pro Status -->
               </div>
             </div>
@@ -83,7 +83,7 @@ include 'CRUD/atualizar_chamado.php';
                   <h5 style="text-align: center;">Loja</h5>
                 </div>
                 <!-- link do Filtro Pro Loja -->
-                <?php include 'conexao/filtro/loja/filtra_loja.php' ?>
+                <?php include 'CONEXAO/FILTRO/LOJA/filtro_loja.php' ?>
                 <!-- Fim link do Filtro Pro Loja -->
               </div>
             </div>
@@ -91,7 +91,7 @@ include 'CRUD/atualizar_chamado.php';
           <!-- Fim Dos Filtro -->
 
           <!-- Lista de Chamado -->
-          <div id="rolagem" class="dropdown-menu d-block position-static shadow" style="margin-left: 16em;">
+          <div id="rolagem" class="dropdown-menu d-block position-static shadow" style="margin-left: 15em;">
             <h5 style="text-align: center;">Lista de Chamado</h5>
             <div class="table-responsive small">
               <?php
@@ -132,7 +132,7 @@ include 'CRUD/atualizar_chamado.php';
                   echo "<td>" . $row["teamviewer"] . "</td>";
                   echo "<td>" . $row["data"] . "</td>";
                   echo "<td>" . $row["status"] . "</td>";
-                  echo "<td><a class='btn btn-sm btn-outline-primary dropdown-toggle' href='CRUD/altera_formulario?id=" . $row["id"] . "'>Editar</a></td>";
+                  echo "<td><a class='btn btn-sm btn-outline-primary dropdown-toggle' href='CRUD/ALTERA/altera_formulario?id=" . $row["id"] . "'>Editar</a></td>";
                   echo "</tr>";
                 }
                 echo "</tbody>";

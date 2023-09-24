@@ -1,9 +1,8 @@
-<!-- Concexão com Banco de Dados -->
 <?php
+// Concexão com Banco de Dados
 include '../conexao/bancodados.php';
 
 ?>
-<!-- Fim Concexão com Banco de Dados -->
 
 <!doctype html>
 <html lang="pt">
@@ -39,7 +38,7 @@ include '../conexao/bancodados.php';
                 <!-- Campo do Formulario -->
                 <div class="col-md-8 col-lg-7" style="margin: auto">
                     <h3 class="mb-3">Novo Chamado</h3>
-                    <form method="POST" action="cadastra_from.php" class="needs-validation" novalidate>
+                    <form method="POST" action="CADASTRA/cadastra_from.php" class="needs-validation" novalidate>
                         <div class="row g-3">
                             <div class="col-sm-12">
                                 <label for="nome" class="form-label">Nome</label>
@@ -62,7 +61,7 @@ include '../conexao/bancodados.php';
 
                             <div class="col-12">
                                 <label for="whatsapp" class="form-label">N° Whatsapp <span class="text-body-secondary">(Optional)</span></label>
-                                <input type="number" class="form-control" id="whatsapp" name="whatsapp" placeholder="(85)9 0000-0000">
+                                <input type="number" class="form-control" id="whatsapp" name="whatsapp" placeholder="9 0000-0000">
                                 <div class="invalid-feedback">
                                     N° Whatsapp válido
                                 </div>

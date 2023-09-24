@@ -1,6 +1,6 @@
 <?php
 
-include '../conexao/bancodados.php';
+include '../../conexao/bancodados.php';
 
 ?>
 
@@ -17,17 +17,17 @@ include '../conexao/bancodados.php';
     <title>Controle de Chamados</title>
 
     <!-- Links CSS -->
-    <link href="../css/dist/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/styles.css" rel="stylesheet">
+    <link href="../../css/dist/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/styles.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/dashboard.css" rel="stylesheet">
+    <link href="../../css/dashboard.css" rel="stylesheet">
 </head>
 
 <body class="bg-body-tertiary">
     <!-- Imagem de Logo -->
     <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="../img/logo.jpeg" alt="" width="100" height="100">
+        <img class="d-block mx-auto mb-4" src="../../img/logo.jpeg" alt="" width="100" height="100">
         <h2>Formulário de Chamado da T.I</h2>
     </div>
     <!-- Fim da Imagem da Logo -->
@@ -49,7 +49,7 @@ include '../conexao/bancodados.php';
 
             <div class="col-md-8 col-lg-7" style="margin: auto">
                 <h3 class="mb-3">Editar Chamado</h3>
-                <form action="../painel.php" method="POST">
+                <form action="../../painel_chamado.php" method="POST">
                     <div class="row g-3">
                         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
 
@@ -181,10 +181,10 @@ include '../conexao/bancodados.php';
     ?>
     <br><br><br><br>
     <!-- Links JS -->
-    <script src="../js/dashboard.js"></script>
-    <script src="../js/dist/bootstrap.bundle.min.js"></script>
-    <script src="../js/dist/feather.min.js"></script>
-    <script src="../js/dist/chart.min.js"></script>
+    <script src="../../js/dashboard.js"></script>
+    <script src="../../js/dist/bootstrap.bundle.min.js"></script>
+    <script src="../../js/dist/feather.min.js"></script>
+    <script src="../../js/dist/chart.min.js"></script>
 </body>
 
 </html>
