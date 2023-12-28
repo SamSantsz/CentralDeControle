@@ -1,6 +1,6 @@
 <?php
 
-include '../../conexao/bancodados.php';
+include '../../CONEXAO/bancodados.php';
 
 ?>
 
@@ -14,22 +14,22 @@ include '../../conexao/bancodados.php';
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.108.0">
 
-    <title>Controle de Chamados</title>
+    <title>Controle de Controle</title>
     <!-- Favicons -->
-    <link rel="icon" href="IMG/ICONE/icone.jpg" sizes="16x16" type="image/jpg">
-    
+    <link rel="icon" href="../../IMG/ICONE/icone.jpg" sizes="16x16" type="image/jpg">
+
     <!-- Links CSS -->
-    <link href="../../css/dist/bootstrap.min.css" rel="stylesheet">
-    <link href="../../css/styles.css" rel="stylesheet">
+    <link href="../../CSS/DIST/bootstrap.min.css" rel="stylesheet">
+    <link href="../../CSS/styles.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../../css/dashboard.css" rel="stylesheet">
+    <link href="../../CSS/dashboard.css" rel="stylesheet">
 </head>
 
 <body class="bg-body-tertiary">
     <!-- Imagem de Logo -->
     <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="../../img/logo.jpeg" alt="" width="100" height="100">
+        <img class="d-block mx-auto mb-4" src="../../IMG/ICONE/morango.png" alt="" width="100" height="100">
         <h2>Formulário de Chamado da T.I</h2>
     </div>
     <!-- Fim da Imagem da Logo -->
@@ -95,6 +95,12 @@ include '../../conexao/bancodados.php';
                         <div class="col-12">
                             <label for="problema" class="form-label">Problema</label>
                             <input class="form-control" type="text" id="problema" name="problema" value="<?php echo $row['problema']; ?>" required readonly>
+                            <br>
+                                <h6><label for="imagem">Imagem:</label></h6>
+                            <div style="text-align: center;">                                
+                                <img class="img-fluid" src="../../IMG/CHAMADO/<?php echo $row['imagem']; ?>" alt="Imagem do Problema">
+
+                            </div>
                             <div class="invalid-feedback">
                                 Descreva o Problema.
                             </div>
@@ -165,6 +171,7 @@ include '../../conexao/bancodados.php';
                         <hr class="my-4">
 
                         <input class="w-100 btn btn-primary btn-lg" type="submit" value="Atualizar">
+                        <a href="../../painel_chamado.php" type="submit" class="btn btn-secondary">Cancelar!</a>
                     </div>
                 </form>
             </div>
@@ -183,10 +190,10 @@ include '../../conexao/bancodados.php';
     ?>
     <br><br><br><br>
     <!-- Links JS -->
-    <script src="../../js/dashboard.js"></script>
-    <script src="../../js/dist/bootstrap.bundle.min.js"></script>
-    <script src="../../js/dist/feather.min.js"></script>
-    <script src="../../js/dist/chart.min.js"></script>
+    <script src="../../JS/dashboard.js"></script>
+    <script src="../../JS/DIST/bootstrap.bundle.min.js"></script>
+    <script src="../../JS/DIST/feather.min.js"></script>
+    <script src="../../JS/DIST/chart.min.js"></script>
 </body>
 
 </html>

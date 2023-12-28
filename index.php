@@ -1,6 +1,6 @@
 <?php
 // Concexão com Banco de Dados
-include 'conexao/bancodados.php';
+include 'CONEXAO/bancodados.php';
 
 // CRUD Cadastra Item
 include 'CRUD/CADASTRA/cadastra_item.php';
@@ -20,15 +20,15 @@ include 'CRUD/CADASTRA/cadastra_item.php';
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.108.0">
 
-  <title>Controle de Chamados</title>
+  <title>Controle de Controle</title>
   <link rel="icon" href="IMG/ICONE/icone.jpg" sizes="16x16" type="image/jpg">
 
   <!-- Links CSS -->
-  <link href="css/dist/bootstrap.min.css" rel="stylesheet">
+  <link href="CSS/DIST/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->  
-  <link href="css/styles.css" rel="stylesheet">
-  <link href="css/dashboard.css" rel="stylesheet">
+  <link href="CSS/styles.css" rel="stylesheet">
+  <link href="CSS/dashboard.css" rel="stylesheet">
 </head>
 
 <body>
@@ -97,23 +97,23 @@ include 'CRUD/CADASTRA/cadastra_item.php';
               ?>
               <?php while ($row = mysqli_fetch_assoc($select)) { ?>
 
-                <div class="col-3 col-md-3">
-                  <div class="card shadow-sm" id='tabela-estoque'>
+                <div class="col-4 col-md-3">
+                  <div class="card shadow-sm" id='tabela-chamado'>
                     <div>
-                      <a href="detalhe_item.php?detalhe=<?php echo $row['id']; ?>"> <img class="img-fluid" src="img/<?php echo $row['imagem']; ?>" alt=""> </a>
+                      <a href="detalhe_item.php?detalhe=<?php echo $row['id']; ?>"> <img class="img-fluid" src="IMG/EQUIPAMENTO/<?php echo $row['imagemI']; ?>" alt=""> </a>
                     </div>
                     <!-- class="img-fluid" height="289" width="289"-->
                     <div class="card-body">
 
-                      <p class="card-text"><?php echo $row['descricao']; ?>.</p>
+                      <p class="card-text"><?php echo $row['descricaoI']; ?>.</p>
                       <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
+                        <div class="btn-group badge text-wrap">
 
                           <a href="CRUD/ALTERA/altera_item.php?edit=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-secondary"> <i class="fas fa-edit"></i> editar </a>
                           <a href="CRUD/EXCLUIR/excluir_item.php?delete=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-secondary"> <i class="fas fa-trash"></i> deletar </a>
-
+                          
+                          <small style="margin-left: 1em;" class="text-muted">ITEM : <?php echo $row['id']; ?></small>
                         </div>
-                        <small class="text-muted">ITEM : <?php echo $row['id']; ?></small>
                       </div>
                     </div>
                   </div>
@@ -129,11 +129,11 @@ include 'CRUD/CADASTRA/cadastra_item.php';
     </div>
   </div>
   <!-- Links JS -->
-  <script src="js/dashboard.js"></script>
-  <script src="js/dist/bootstrap.bundle.min.js"></script>
-  <script src="js/dist/feather.min.js"></script>
-  <script src="js/dist/chart.min.js"></script>
-  <script src="js/eventos.js"></script>
+  <script src="JS/dashboard.js"></script>
+  <script src="JS/DIST/bootstrap.bundle.min.js"></script>
+  <script src="JS/DIST/feather.min.js"></script>
+  <script src="JS/DIST/chart.min.js"></script>
+  <script src="JS/eventos.js"></script>
 </body>
 
 </html>

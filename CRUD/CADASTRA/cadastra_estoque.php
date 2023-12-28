@@ -1,6 +1,6 @@
 <?php
 // informações de conexão com o banco de dados
-@include '../../conexao/bancodados.php';
+@include '../../CONEXAO/bancodados.php';
 $id = $_GET['detalhe'];
 
 // Verifique se o formulário foi enviado
@@ -12,11 +12,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $loja = $_POST["loja"];
     $setor = $_POST["setor"];
     $pdv = $_POST["pdv"];
-    $situacao = $_POST["situacao"] = 'Funcionando';
+    $status = $_POST["status"] = 'Funcionando';
 
     // Query SQL para inserir os dados no banco de dados
-    $sql = "INSERT INTO tb_estoque (id_item, descricao, nserie, loja, setor, pdv, situacao)
-            VALUES ('$id_item', '$descricao', '$nserie', '$loja', '$setor', '$pdv', '$situacao')";
+    $sql = "INSERT INTO tb_estoque (id_item, descricaoE, nserieE, lojaE, setorE, pdvE, statusE)
+            VALUES ('$id_item', '$descricao', '$nserie', '$loja', '$setor', '$pdv', '$status')";
 
     if ($conn->query($sql) === TRUE) {
         $select = mysqli_query($conn, "SELECT * FROM tb_item WHERE $id");

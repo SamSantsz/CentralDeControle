@@ -1,6 +1,6 @@
 <?php
 // Concexão com Banco de Dados
-include '../conexao/bancodados.php';
+include '../CONEXAO/bancodados.php';
 
 ?>
 
@@ -14,14 +14,15 @@ include '../conexao/bancodados.php';
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.108.0">
 
-    <title>Controle de Chamados</title>
+    <title>Controle de Controle</title>
+    <link rel="icon" href="../IMG/ICONE/icone.jpg" sizes="16x16" type="image/jpg">
 
     <!-- Links CSS -->
-    <link href="../css/dist/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/styles.css" rel="stylesheet">
+    <link href="../CSS/DIST/bootstrap.min.css" rel="stylesheet">
+    <link href="../CSS/styles.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/dashboard.css" rel="stylesheet">
+    <link href="../CSS/dashboard.css" rel="stylesheet">
 </head>
 
 <body class="bg-body-tertiary">
@@ -29,7 +30,7 @@ include '../conexao/bancodados.php';
         <main>
             <!-- Imagem de Logo -->
             <div class="py-5 text-center">
-                <img class="d-block mx-auto mb-4" src="../img/logo.jpeg" alt="" width="100" height="100">
+                <img class="d-block mx-auto mb-4" src="../IMG/ICONE/morango.png" alt="morango" width="100" height="100">
                 <h2>Formulário de Chamado da T.I</h2>
             </div>
             <!-- Fim da Imagem da Logo -->
@@ -38,7 +39,7 @@ include '../conexao/bancodados.php';
                 <!-- Campo do Formulario -->
                 <div class="col-md-8 col-lg-7" style="margin: auto">
                     <h3 class="mb-3">Novo Chamado</h3>
-                    <form method="POST" action="CADASTRA/cadastra_from.php" class="needs-validation" novalidate>
+                    <form method="POST" action="CADASTRA/cadastra_from.php" class="needs-validation" enctype="multipart/form-data">
                         <div class="row g-3">
                             <div class="col-sm-12">
                                 <label for="nome" class="form-label">Nome</label>
@@ -121,6 +122,9 @@ include '../conexao/bancodados.php';
                             <div class="col-12">
                                 <label for="problema" class="form-label">Problema</label>
                                 <textarea type="text" class="form-control" id="problema" name="problema" rows="3" required></textarea>
+                                
+                                <h6><label for="imagem">Imagem:</label><br></h6>
+                                <input type="file" name="imagem"  id="imagem" class="form-control" required><br><br>
                                 <div class="invalid-feedback">
                                     Descreva o Problema.
                                 </div>
@@ -165,10 +169,12 @@ include '../conexao/bancodados.php';
     </div>
     <br><br><br><br>
     <!-- Links JS -->
-    <script src="../js/dashboard.js"></script>
-    <script src="../js/dist/bootstrap.bundle.min.js"></script>
-    <script src="../js/dist/feather.min.js"></script>
-    <script src="../js/dist/chart.min.js"></script>
+    <script src="../JS/dashboard.js"></script>
+    <script src="../JS/DIST/bootstrap.bundle.min.js"></script>
+    <script src="../JS/DIST/feather.min.js"></script>
+    <script src="../JS/DIST/chart.min.js"></script>
+
+    <script src="../JS/eventos.js"></script>
 
 </body>
 

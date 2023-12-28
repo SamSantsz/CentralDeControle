@@ -1,6 +1,6 @@
 <?php
 
-  include '../../conexao/bancodados.php';
+  include '../../CONEXAO/bancodados.php';
   
 if (isset($_GET['delete'])) {
   $id = $_GET['delete'];

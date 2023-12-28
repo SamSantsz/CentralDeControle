@@ -1,11 +1,11 @@
 <?php
 /// informações de conexão com o banco de dados
-@include '../../conexao/bancodados.php';
+@include '../../CONEXAO/bancodados.php';
 
 // Verifica se um arquivo foi enviado
 if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] == 0) {
     // Diretório onde a imagem será salva
-    $diretorio = '../../img/';
+    $diretorio = '../../IMG/EQUIPAMENTO/';
 
     // Nome do arquivo original
     $nomeOriginal = $_FILES['imagem']['name'];
@@ -32,10 +32,10 @@ if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] == 0) {
         
 
         // Insere o nome do arquivo na tabela tb_item
-        $sql = "INSERT INTO tb_item (descricao, imagem) VALUES ('$nome', '$nomeOriginal')";
+        $sql = "INSERT INTO tb_item (descricaoI, imagemI) VALUES ('$nome', '$nomeOriginal')";
 
         if (mysqli_query($conn, $sql)) {
-            echo "<script>alert('Dados inseridos com sucesso.'); location.href='../../index.php';</script>";
+            echo "<script>alert('Equipamento Cadastrado com Sucesso.'); location.href='../../index.php';</script>";
             
         } else {
             echo "<script>alert('Erro ao inserir dados: '); location.href='../../index.php';</script>" . $conn;

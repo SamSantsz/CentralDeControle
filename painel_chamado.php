@@ -1,6 +1,6 @@
 <!-- Concexão com Banco de Dados -->
 <?php
-include 'conexao/bancodados.php';
+include 'CONEXAO/bancodados.php';
 
 include 'CRUD/ALTERA/atualizar_chamado.php';
 ?>
@@ -16,16 +16,16 @@ include 'CRUD/ALTERA/atualizar_chamado.php';
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.108.0">
 
-  <title>Controle de Chamados</title>
+  <title>Controle de Controle</title>
   <!-- Favicons -->
   <link rel="icon" href="IMG/ICONE/icone.jpg" sizes="16x16" type="image/jpg">
 
   <!-- Links CSS -->
-  <link href="css/dist/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
+  <link href="CSS/DIST/bootstrap.min.css" rel="stylesheet">
+  <link href="CSS/styles.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/dashboard.css" rel="stylesheet">
+  <link href="CSS/dashboard.css" rel="stylesheet">
 
   <style>
     #rolagem {
@@ -67,35 +67,24 @@ include 'CRUD/ALTERA/atualizar_chamado.php';
         <!-- Fim do Topo -->
         <div class="container-fluid">
           <!-- Filtro -->
-          <div class="dropdown-menu d-block position-static shadow d-grid gap-4" style=" float: left;">
-            <div class="bg-body-tertiary border rounded-3">
-              <div class="dropdown-menu d-block position-static pt-0 mx-0 rounded-3 shadow overflow-hidden w-280px">
-                <div class="bg-body-tertiary border rounded-3">
-                  <h5 style="text-align: center;">Status</h5>
-                </div>
-                <!-- link do Filtro Pro Status -->
-                <?php include 'CONEXAO/FILTRO/STATUS/filtro_status.php' ?>
-                <!-- Fim link do Filtro Pro Status -->
+          <div class="d-block position-static shadow gap-12 col-12 col-md-3" style=" float: left;">
+            <div class="dropdown-menu d-block position-static pt-0 mx-0 rounded-3 shadow overflow-hidden w-280px">
+              <div class="bg-body-tertiary border rounded-3">
+                <h5 style="text-align: center;">Status</h5>
               </div>
+              <?php include 'CONEXAO/FILTRO/STATUS/filtro_status.php' ?>
             </div>
-
-            <div class="bg-body-tertiary border rounded-3">
-              <div class="dropdown-menu d-block position-static pt-0 mx-0 rounded-3 shadow overflow-hidden w-280px">
-                <div class="bg-body-tertiary border rounded-3">
-                  <h5 style="text-align: center;">Loja</h5>
-                </div>
-                <!-- link do Filtro Pro Loja -->
-                <?php include 'CONEXAO/FILTRO/LOJA/filtro_loja.php' ?>
-                <!-- Fim link do Filtro Pro Loja -->
-              </div>
-            </div>
+            <!-- link dos Cliente -->
+            <button style="margin: 1em; margin-left: 2em;" type="button" class="btn btn-sm btn-outline-danger">
+              <a href="CRUD/fromul_ChamClient.php" class="btn btn-sm"><strong>Formulario Para frente de Loja</strong></a>
+            </button>
           </div>
           <!-- Fim Dos Filtro -->
 
           <!-- Lista de Chamado -->
-          <div id="rolagem" class="dropdown-menu d-block position-static shadow" style="margin-left: 15em;">
+          <div class="dropdown-menu d-block position-static shadow d-grid gap-12 col-12 col-md-9">
             <h5 style="text-align: center;">Lista de Chamado</h5>
-            <div class="table-responsive small">
+            <div id="rolagem" class="table-responsive small">
               <?php
               // Verifique se um filtro de status foi especificado na URL
               $filtro_status = isset($_GET["status"]) ? $_GET["status"] : null;
@@ -121,6 +110,7 @@ include 'CRUD/ALTERA/atualizar_chamado.php';
                       <th>TeamViewer</th>
                       <th>Data</th>
                       <th>Status</th>
+                      <th>Direcionar</th>
                     </tr>";
                 echo "</thead>";
                 echo  "<tbody id='tabela-chamado'>";
@@ -134,6 +124,7 @@ include 'CRUD/ALTERA/atualizar_chamado.php';
                   echo "<td>" . $row["teamviewer"] . "</td>";
                   echo "<td>" . $row["data"] . "</td>";
                   echo "<td>" . $row["status"] . "</td>";
+                  // echo '<td><img src="IMG/CHAMADO' . $row["imagem"] . '" width="100"></td>';
                   echo "<td><a class='btn btn-sm btn-outline-primary dropdown-toggle' href='CRUD/ALTERA/altera_formulario?id=" . $row["id"] . "'>Editar</a></td>";
                   echo "</tr>";
                 }
@@ -149,16 +140,17 @@ include 'CRUD/ALTERA/atualizar_chamado.php';
           </div>
           <!-- Fim da Lista de Chamado -->
         </div>
+        <hr>
       </main>
     </div>
   </div>
   <!-- Links JS -->
-  <script src="js/dashboard.js"></script>
-  <script src="js/dist/bootstrap.bundle.min.js"></script>
-  <script src="js/dist/feather.min.js"></script>
-  <script src="js/dist/chart.min.js"></script>
+  <script src="JS/dashboard.js"></script>
+  <script src="JS/DIST/bootstrap.bundle.min.js"></script>
+  <script src="JS/DIST/feather.min.js"></script>
+  <script src="JS/DIST/chart.min.js"></script>
 
-  <script src="js/filtrocham.js"></script>
+  <script src="JS/filtrocham.js"></script>
 </body>
 
 </html>

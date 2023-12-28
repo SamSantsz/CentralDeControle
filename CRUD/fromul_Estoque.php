@@ -1,6 +1,6 @@
 <!-- Concexão com Banco de Dados -->
 <?php
-include '../conexao/bancodados.php';
+include '../CONEXAO/bancodados.php';
 
 $id = $_GET['estoque'];
 ?>
@@ -16,7 +16,8 @@ $id = $_GET['estoque'];
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.108.0">
 
-    <title>Controle de Chamados</title>
+    <title>Controle de Controle</title>
+    <link rel="icon" href="../IMG/ICONE/icone.jpg" sizes="16x16" type="image/jpg">
 
     <!-- Links CSS -->
     <link href="../css/dist/bootstrap.min.css" rel="stylesheet">
@@ -118,7 +119,7 @@ $id = $_GET['estoque'];
                             </div>
 
                             <div class="col-md-4">
-                                
+
                             </div>
 
                             <div class="col-md-4">
@@ -147,10 +148,10 @@ $id = $_GET['estoque'];
     </div>
     <br><br><br><br>
     <!-- Links JS -->
-    <script src="../js/dashboard.js"></script>
-    <script src="../js/dist/bootstrap.bundle.min.js"></script>
-    <script src="../js/dist/feather.min.js"></script>
-    <script src="../js/dist/chart.min.js"></script>
+    <script src="../JS/dashboard.js"></script>
+    <script src="../JS/DIST/bootstrap.bundle.min.js"></script>
+    <script src="../JS/DIST/feather.min.js"></script>
+    <script src="../JS/DIST/chart.min.js"></script>
 
 </body>
 

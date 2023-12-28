@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 23-Set-2023 às 16:43
+-- Tempo de geração: 01-Nov-2023 às 12:35
 -- Versão do servidor: 8.0.31
 -- versão do PHP: 8.0.26
 
@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS `tb_chamado` (
   `loja` text NOT NULL,
   `setor` text NOT NULL,
   `problema` varchar(255) NOT NULL,
+  `imagem` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `teamviewer` int NOT NULL,
   `data` datetime NOT NULL,
   `status` text NOT NULL,
@@ -43,25 +44,14 @@ CREATE TABLE IF NOT EXISTS `tb_chamado` (
   `resolucao` varchar(255) NOT NULL,
   `dataFin` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `tb_chamado`
 --
 
-INSERT INTO `tb_chamado` (`id`, `nome`, `email`, `whatsapp`, `loja`, `setor`, `problema`, `teamviewer`, `data`, `status`, `tecnico`, `resolucao`, `dataFin`) VALUES
-(2, 'samuel santos', 'samuelfodarock.666@gmail.com', 2147483647, 'Matriz', 'F.Loja', 'teste de cadastro do formulário', 1123123123, '2023-09-07 00:00:00', 'Finalizado', 'Samuel Santos', 'teste feito', '2023-09-12 15:08:00'),
-(3, 'Sam Santsz', 'samuelfodarock.666@gmail.com', 2147483647, 'Filial', 'Salão', 'segundo teste de cadastro do formulário', 1321123321, '2023-09-07 00:00:00', 'Não Impor/Urgente', '', '', '0000-00-00 00:00:00'),
-(4, 'mari', 'samuelsantosqueiroz@gmail.com', 2147483647, 'Conceito', 'Recebimento', 'terceiro teste de cadastro do formulário', 1123321123, '2023-09-07 00:00:00', 'Importante/Não Urgen', '', '', '0000-00-00 00:00:00'),
-(5, 'pani', 'samuelsantosqueiroz@gmail.comds', 991030092, 'Matriz', 'F.Loja', 'teste de numero', 1222333444, '2023-09-07 00:00:00', 'Importante/Não Urgen', '', '', '0000-00-00 00:00:00'),
-(6, 'Cris', 'samuelsantosqueiroz@gmail.', 85991, 'Matriz', 'F.Loja', 'teste de nume', 2147483647, '2023-09-07 00:00:00', 'Finalizado', '', '', '0000-00-00 00:00:00'),
-(7, 'Cris', 'samuelfodarocadk.666@gmail.com', 91030092, 'Matriz', 'F.Loja', 'tes whatsaapp', 22222, '2023-09-07 00:00:00', 'Importante/Urgente', '', '', '0000-00-00 00:00:00'),
-(8, 'samuel santos', 'samuelfodarock.666@gmail.com', 91030092, 'Filial', 'F.Loja', 'teste de prioridade', 1123456789, '2023-09-08 00:00:00', 'Importante/Não Urgen', '', '', '0000-00-00 00:00:00'),
-(9, 'samuel santos', 'samuelfodarock.666@gmail.com', 98888889, 'Conceito', 'Recebimento', 'teste de status', 2147483647, '2023-09-08 00:00:00', 'Não Impor/Não Urgen', 'Samuel Santos', 'feito', '2023-09-13 13:45:00'),
-(10, 'samuel santos', 'samuelfodarock.666@gmail.com', 123432453, 'Filial', 'Recebimento', 'tes', 124325, '2023-09-09 00:00:00', 'Finalizado', 'Lucas Lima', '', '2023-09-20 09:47:00'),
-(11, 'samuel santos', 'samuelfodarock.666@gmail.com', 12345, 'Filial', 'F.Loja', 'ttt', 1122, '2023-09-12 00:00:00', 'Triagem', '', '', '0000-00-00 00:00:00'),
-(12, 'samuel santos', 'samuelfodarock.666@gmail.com', 12345, 'Filial', 'F.Loja', 'ttt', 1122, '2023-09-12 00:00:00', 'Triagem', '', '', '0000-00-00 00:00:00'),
-(13, 'samuel santos', 'samuelfodarock.666@gmail.com', 918835556, 'Matriz', 'Recebimento', 'teste de hora', 887951985, '2023-09-12 14:29:00', 'Triagem', '', '', '0000-00-00 00:00:00');
+INSERT INTO `tb_chamado` (`id`, `nome`, `email`, `whatsapp`, `loja`, `setor`, `problema`, `imagem`, `teamviewer`, `data`, `status`, `tecnico`, `resolucao`, `dataFin`) VALUES
+(1, 'samuel santos', 'samuelfodarock.666@gmail.com', 91030092, 'Matriz', 'PDV', 'teste', 'Imagem do WhatsApp de 2023-09-22 à(s) 16.23.539.jpg', 1123123123, '2023-10-30 17:01:00', 'Não Impor/Não Urgen', 'Alex Fushi', '', '2023-10-30 17:02:00');
 
 -- --------------------------------------------------------
 
@@ -73,36 +63,14 @@ DROP TABLE IF EXISTS `tb_estoque`;
 CREATE TABLE IF NOT EXISTS `tb_estoque` (
   `id` int NOT NULL AUTO_INCREMENT,
   `id_item` int NOT NULL,
-  `descricao` varchar(255) NOT NULL,
-  `nserie` varchar(255) NOT NULL,
-  `loja` text NOT NULL,
-  `setor` text NOT NULL,
-  `pdv` int NOT NULL,
-  `situacao` text NOT NULL,
+  `descricaoE` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `nserieE` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `lojaE` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `setorE` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `pdvE` int NOT NULL,
+  `statusE` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Extraindo dados da tabela `tb_estoque`
---
-
-INSERT INTO `tb_estoque` (`id`, `id_item`, `descricao`, `nserie`, `loja`, `setor`, `pdv`, `situacao`) VALUES
-(1, 38, 'tes', '123', 'Matriz', 'TI', 0, 'Funcionando'),
-(2, 36, 'samuel santos', '1234', 'São Francisco', 'Chegue Pague', 0, 'Funcionando'),
-(3, 37, 'tt', '123', 'Coneito', 'Financeiro', 0, 'Funcionando'),
-(4, 39, 'samuel santos', '23', 'Coneito', 'Padaria', 0, 'Funcionando'),
-(5, 40, 'ta', '23', 'Coneito', 'Padaria', 0, 'Funcionando'),
-(6, 0, 'samuel santos', '222', 'Jangada Hori', 'PDV', 0, 'Funcionando'),
-(7, 0, 'samuel santos', '12', 'Buriti', 'PDV', 0, 'Funcionando'),
-(8, 0, 'samuel santos', '33', 'Barreira', 'Frigorífico', 0, 'Funcionando'),
-(9, 39, 'samuel santos', '1212', 'Buriti', 'DTI', 111, 'Funcionando'),
-(10, 39, 'samuel santos', '134', 'Barreira', 'Cartaz', 0, 'Funcionando'),
-(11, 39, 'samuel santos', '12', 'Shopping', 'Cartaz', 1, 'Funcionando'),
-(12, 39, 'samuel santos', 'we432', 'Buriti', 'Recepção', 23, 'Funcionando'),
-(13, 39, 'samuel santos', '123', 'Buriti', 'Recepção', 1, 'Funcionando'),
-(14, 39, 'samuel santos', '12', 'Beberibe', 'Recepção', 1, 'Funcionando'),
-(15, 39, 'samuel santos', '12', 'Beberibe', 'Recepção', 1, 'Funcionando'),
-(16, 39, 'samuel santos', '34', 'Buriti', 'Recepção', 3, 'Funcionando');
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -113,25 +81,65 @@ INSERT INTO `tb_estoque` (`id`, `id_item`, `descricao`, `nserie`, `loja`, `setor
 DROP TABLE IF EXISTS `tb_item`;
 CREATE TABLE IF NOT EXISTS `tb_item` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `descricao` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `imagem` varchar(200) NOT NULL,
+  `descricaoI` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `imagemI` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `tb_item`
 --
 
-INSERT INTO `tb_item` (`id`, `descricao`, `imagem`) VALUES
-(39, 'samuel santos', 'logo.jpeg'),
-(38, 'samuel santos', 'wp2993413.jpg'),
-(36, 'samuel santos', 'unnamed.jpg'),
-(34, 'samuel santos', 'OIP.jfif'),
-(35, 'samuel santos', 'R (2).jpg'),
-(32, 'samuel santos', 'Imagem do WhatsApp de 2023-08-12 à(s) 16.08.35.jpg'),
-(33, 'samuel santos', 'R.jfif'),
-(31, 'samuel santos', 'ef62714203e333859f3133538adc418e.jpg'),
-(40, 'nova img', 'Imagem do WhatsApp de 2023-08-30 à(s) 10.58.26.jpg');
+INSERT INTO `tb_item` (`id`, `descricaoI`, `imagemI`) VALUES
+(1, 'samuel santos', 'Imagem do WhatsApp de 2023-09-22 à(s) 16.23.52i.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_manutencao`
+--
+
+DROP TABLE IF EXISTS `tb_manutencao`;
+CREATE TABLE IF NOT EXISTS `tb_manutencao` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `id_item` int NOT NULL,
+  `descricaoM` varchar(255) NOT NULL,
+  `nserieM` varchar(255) NOT NULL,
+  `fornecedor` text NOT NULL,
+  `statusM` text NOT NULL,
+  `motivoM` varchar(255) NOT NULL,
+  `dataM` date NOT NULL,
+  `tecnicoM` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_relatorio`
+--
+
+DROP TABLE IF EXISTS `tb_relatorio`;
+CREATE TABLE IF NOT EXISTS `tb_relatorio` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `ipR` varchar(255) NOT NULL,
+  `nserieR` varchar(255) NOT NULL,
+  `nmacR` varchar(255) NOT NULL,
+  `lojaR` text NOT NULL,
+  `patrimonioR` int NOT NULL,
+  `ramalR` int NOT NULL,
+  `ncaixaR` int NOT NULL,
+  `numeroR` int NOT NULL,
+  `equipR` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Extraindo dados da tabela `tb_relatorio`
+--
+
+INSERT INTO `tb_relatorio` (`id`, `ipR`, `nserieR`, `nmacR`, `lojaR`, `patrimonioR`, `ramalR`, `ncaixaR`, `numeroR`, `equipR`) VALUES
+(4, '192.168.0.1', '12345gsdfs', 'd2:22:dd:11', 'Barreira', 0, 0, 11, 0, 'Caixa');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
