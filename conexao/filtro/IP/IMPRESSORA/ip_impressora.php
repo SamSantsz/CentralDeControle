@@ -25,13 +25,13 @@
         <div id="rolagemCX" class="table-responsive small">
             <?php
             // Verifique se um filtro de status foi especificado na URL
-            $filtro_status = isset($_GET["status"]) ? $_GET["status"] : null;
+            $filtro_status = isset($_GET["loja"]) ? $_GET["loja"] : null;
 
             // Construa a consulta SQL com base no filtro de status
             $sql = "SELECT * FROM tb_relatorio WHERE equipR = 'Impressora'";
 
             if ($filtro_status) {
-                $sql .= " WHERE status = '$filtro_status'";
+                $sql .= " AND LojaR = '$filtro_status'";
             }
 
             $result = $conn->query($sql);

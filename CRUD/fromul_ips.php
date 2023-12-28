@@ -53,7 +53,9 @@
                             <option>Barreira</option>
                             <option>Buriti</option>
                             <option>Beberibe</option>
-                            <option>Nova Barreira</option>
+                            <option>Barreira 02</option>                            
+                            <option>Pindoretama</option>
+                            <option>Horizonte 02</option>
                         </select>
                         <div class="invalid-feedback">
                             Selecione uma Loja válida.

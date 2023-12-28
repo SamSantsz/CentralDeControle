@@ -88,8 +88,20 @@
   </li>
   <li>
     <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="relatorios_ips.php?loja=Barreira%2002">
-      <span class="d-inline-block bg-info rounded-circle p-1"></span>
+      <span class="d-inline-block bg-success rounded-circle p-1"></span>
       Barreira 02
+    </a>
+  </li>
+  <li>
+    <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="relatorios_ips.php?loja=Barreira%2002">
+      <span class="d-inline-block bg-primary rounded-circle p-1"></span>
+      Pindoretama
+    </a>
+  </li>
+  <li>
+    <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="relatorios_ips.php?loja=Barreira%2002">
+      <span class="d-inline-block bg-danger rounded-circle p-1"></span>
+      Horizonte 02
     </a>
   </li>
 </ul>

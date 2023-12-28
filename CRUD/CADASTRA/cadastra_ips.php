@@ -22,9 +22,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              VALUES ('$ipR', '$nserieR', '$nmacR', '$lojaR', '$patrimonioR', '$ramalR', '$ncaixaR', '$numeroR','$equipR', '$localR', '$modeloR')";
 
     if (mysqli_query($conn, $sql)) {
-        echo "<script> alert('Cadastro realizado com sucesso!'); location.href='../../ips.php'; </script>";
+        echo "<script> alert('Cadastro realizado com sucesso!'); location.href='../../relatorios_ips.php'; </script>";
     } else {
-        echo "<script> alert('Por favor, preencha todos os campos!'); location.href='../../ips.php'; </script>";
+        echo "<script> alert('Por favor, preencha todos os campos!'); location.href='../../relatorios_ips.php'; </script>";
     }
 
     // Feche a conexão com o banco de dados
