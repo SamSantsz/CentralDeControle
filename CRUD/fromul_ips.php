@@ -75,6 +75,8 @@
                         </div>
                     </div>
 
+                    <hr>
+
                     <div class="col-12">
                         <label for="patrimonioR" class="form-label">Patrimonio</label>
                         <input type="numver" class="form-control" id="patrimonioR" name="patrimonioR" rows="3">
@@ -86,31 +88,56 @@
                     </div>
 
                     <div class="col-md-4">
+                        <label for="ncaixaR" class="form-label">N° da Estação</label>
+                        <input type="number" class="form-control" id="ncaixaR" name="ncaixaR">
+                    </div>
+
+                    <div class="col-md-4">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="numeroR" class="form-label">Caixa do MFE</label>
+                        <input type="number" class="form-control" id="numeroR" name="numeroR">
+                    </div>
+
+                    <div class="col-md-6">
                         <label for="localR" class="form-label">Local</label>
                         <select class="form-select" id="localR" name="localR" required>
                             <option value="">...</option>
-                            <option></option>
-                            <option></option>
-                            <option></option>
-                            <option></option>
-                            <option></option>
+                            <option>Frente de Loja</option>
+                            <option>Recebimento</option>
+                            <option>Preços</option>
+                            <option>Recepção</option>
+                            <option>DP ou RH</option>
+                            <option>Padaria</option>
+                            <option>Comercial</option>
+                            <option>DTI</option>
+                            <option>Fiscal</option>
+                            <option>Financeiro</option>
                         </select>
                         <div class="invalid-feedback">
                             Selecione uma Equipamento válida.
                         </div>
                     </div>
 
-                    <div class="col-md-4">
-                        <label for="ncaixaR" class="form-label">N° do Caixa</label>
-                        <input type="number" class="form-control" id="ncaixaR" name="ncaixaR">
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <label for="numeroR" class="form-label">Numero do CX</label>
-                        <input type="number" class="form-control" id="numeroR" name="numeroR">
+                    <div class="col-md-6">
+                        <label for="modeloR" class="form-label">Modelo</label>
+                        <select class="form-select" id="modeloR" name="modeloR" required>
+                            <option value="">...</option>
+                            <option>M2040dn</option>
+                            <option>M2035dn</option>
+                            <option>FS 1025MFP</option>
+                            <option>Canon</option>
+                            <option>Ricoh</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Selecione uma Equipamento válida.
+                        </div>
                     </div>
                 </div>
+
                 <br>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fecha</button>
                     <input type="submit" value="Salvar" class="btn btn-primary">
